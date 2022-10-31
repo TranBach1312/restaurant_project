@@ -1,28 +1,28 @@
 package entity;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class Bill {
     private int id;
     private String billNumber;
-    private int orderId;
-    private int customerId;
+    private Order order;
+    private Customer customer;
     private boolean haveVat;
     private double vat;
     private double totalDiscount;
     private double totalMoney;
     private String payMethod;
     private String note;
-    private Date createdAt;
+    private Timestamp createdAt;
 
     public Bill() {
     }
 
-    public Bill(int id, String billNumber, int orderId, int customerId, boolean haveVat, double vat, double totalDiscount, double totalMoney, String payMethod, String note, Date createdAt) {
+    public Bill(int id, String billNumber, Order order, Customer customer, boolean haveVat, double vat, double totalDiscount, double totalMoney, String payMethod, String note, Timestamp createdAt) {
         this.id = id;
         this.billNumber = billNumber;
-        this.orderId = orderId;
-        this.customerId = customerId;
+        this.order = order;
+        this.customer = customer;
         this.haveVat = haveVat;
         this.vat = vat;
         this.totalDiscount = totalDiscount;
@@ -32,10 +32,10 @@ public class Bill {
         this.createdAt = createdAt;
     }
 
-    public Bill(String billNumber, int orderId, int customerId, boolean haveVat, double vat, double totalDiscount, double totalMoney, String payMethod, String note) {
+    public Bill(String billNumber, Order order, Customer customer, boolean haveVat, double vat, double totalDiscount, double totalMoney, String payMethod, String note) {
         this.billNumber = billNumber;
-        this.orderId = orderId;
-        this.customerId = customerId;
+        this.order = order;
+        this.customer = customer;
         this.haveVat = haveVat;
         this.vat = vat;
         this.totalDiscount = totalDiscount;
@@ -60,20 +60,20 @@ public class Bill {
         this.billNumber = billNumber;
     }
 
-    public int getOrderId() {
-        return orderId;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrderId(int orderId) {
-        this.orderId = orderId;
+    public void setOrder(Order order) {
+        this.order = order;
     }
 
-    public int getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public boolean isHaveVat() {
@@ -124,11 +124,11 @@ public class Bill {
         this.note = note;
     }
 
-    public Date getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 }

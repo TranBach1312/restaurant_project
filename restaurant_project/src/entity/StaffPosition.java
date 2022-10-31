@@ -3,20 +3,17 @@ package entity;
 public class StaffPosition {
     private int id;
     private String name;
-    private String desciption;
 
     public StaffPosition() {
     }
 
-    public StaffPosition(int id, String name, String desciption) {
+    public StaffPosition(int id, String name) {
         this.id = id;
         this.name = name;
-        this.desciption = desciption;
     }
 
-    public StaffPosition(String name, String desciption) {
+    public StaffPosition(String name) {
         this.name = name;
-        this.desciption = desciption;
     }
 
     public int getId() {
@@ -35,11 +32,4 @@ public class StaffPosition {
         this.name = name;
     }
 
-    public String getDesciption() {
-        return desciption;
-    }
-
-    public void setDesciption(String desciption) {
-        this.desciption = desciption;
-    }
 }

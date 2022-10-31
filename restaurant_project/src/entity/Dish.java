@@ -1,12 +1,15 @@
 package entity;
 
+import javafx.scene.image.ImageView;
+
 public class Dish {
     private int id;
     private String name;
     private double price;
+    private ImageView image;
     private int totalSold;
     private int categoryId;
-    private String desciption;
+    private String description;
     private boolean deleted;
     private double averageCostPrice;
     private boolean soldOut;
@@ -14,24 +17,22 @@ public class Dish {
     public Dish() {
     }
 
-    public Dish(int id, String name, double price, int totalSold, int categoryId, String desciption, boolean deleted, double averageCostPrice, boolean soldOut) {
+    @Override
+    public String toString() {
+        return this.name;
+    }
+
+    public Dish(int id, String name, double price, ImageView image, int totalSold, int categoryId, String description, boolean deleted, double averageCostPrice, boolean soldOut) {
         this.id = id;
         this.name = name;
         this.price = price;
+        this.image = image;
         this.totalSold = totalSold;
         this.categoryId = categoryId;
-        this.desciption = desciption;
+        this.description = description;
         this.deleted = deleted;
         this.averageCostPrice = averageCostPrice;
         this.soldOut = soldOut;
-    }
-
-    public Dish(String name, double price, int categoryId, String desciption, double averageCostPrice) {
-        this.name = name;
-        this.price = price;
-        this.categoryId = categoryId;
-        this.desciption = desciption;
-        this.averageCostPrice = averageCostPrice;
     }
 
     public int getId() {
@@ -74,12 +75,12 @@ public class Dish {
         this.categoryId = categoryId;
     }
 
-    public String getDesciption() {
-        return desciption;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesciption(String desciption) {
-        this.desciption = desciption;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public boolean isDeleted() {
@@ -104,5 +105,13 @@ public class Dish {
 
     public void setSoldOut(boolean soldOut) {
         this.soldOut = soldOut;
+    }
+
+    public ImageView getImage() {
+        return image;
+    }
+
+    public void setImage(ImageView image) {
+        this.image = image;
     }
 }

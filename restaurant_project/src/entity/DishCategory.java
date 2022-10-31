@@ -51,4 +51,9 @@ public class DishCategory {
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

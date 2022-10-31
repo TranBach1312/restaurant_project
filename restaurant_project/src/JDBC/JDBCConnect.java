@@ -5,11 +5,12 @@ import common.Config;
 import java.sql.*;
 
 public class JDBCConnect {
-    public Connection JDBCConnector() {
+    public static Connection JDBCConnector() {
         Connection conn = null;
         String url = "jdbc:mysql://" + Config.HOST + ":" + Config.PORT + "/" + Config.DBNAME;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(url, Config.USERNAME, Config.PASSWORD);
         } catch (Exception e) {
             e.printStackTrace();
@@ -17,7 +18,7 @@ public class JDBCConnect {
         return conn;
     }
 
-    public void closeConnection(Connection conn) {
+    public static void closeConnection(Connection conn) {
         try {
             if (conn != null) {
                 conn.close();
@@ -27,7 +28,7 @@ public class JDBCConnect {
         }
     }
 
-    public void closePreparedStatement(PreparedStatement p) {
+    public static void closePreparedStatement(PreparedStatement p) {
         try {
             if (p != null) {
                 p.close();
@@ -37,7 +38,7 @@ public class JDBCConnect {
         }
     }
 
-    public void closeResultSet(ResultSet r) {
+    public static void closeResultSet(ResultSet r) {
         try {
             r.close();
         } catch (SQLException e) {

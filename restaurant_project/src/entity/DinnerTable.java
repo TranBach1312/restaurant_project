@@ -5,26 +5,17 @@ public class DinnerTable {
     private String name;
     private int servingQuantity;
     private double surcharge;
+    private boolean inUse;
 
     public DinnerTable() {
     }
 
-    public DinnerTable(int id, String name, int servingQuantity, double surcharge) {
+    public DinnerTable(int id, String name, int servingQuantity, double surcharge, boolean inUse) {
         this.id = id;
         this.name = name;
         this.servingQuantity = servingQuantity;
         this.surcharge = surcharge;
-    }
-
-    public DinnerTable(String name, int servingQuantity, double surcharge) {
-        this.name = name;
-        this.servingQuantity = servingQuantity;
-        this.surcharge = surcharge;
-    }
-
-    public DinnerTable(String name, double surcharge) {
-        this.name = name;
-        this.surcharge = surcharge;
+        this.inUse = inUse;
     }
 
     public int getId() {
@@ -57,5 +48,24 @@ public class DinnerTable {
 
     public void setSurcharge(double surcharge) {
         this.surcharge = surcharge;
+    }
+
+    public boolean isInUse() {
+        return inUse;
+    }
+
+    public void setInUse(boolean inUse) {
+        this.inUse = inUse;
+    }
+
+    @Override
+    public String toString() {
+        return "DinnerTable{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", servingQuantity=" + servingQuantity +
+                ", surcharge=" + surcharge +
+                ", inUse=" + inUse +
+                '}';
     }
 }

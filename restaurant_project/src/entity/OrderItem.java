@@ -3,20 +3,22 @@ package entity;
 import java.sql.Timestamp;
 
 public class OrderItem {
-    private int id;
-    private int dishId;
-    private int quantity;
+    private Integer id;
+    private Dish dish;
+    private Double price;
+    private Integer quantity;
     private double originTotalPrice;
     private double discount;
-    private double totalMoney;
+    private Double totalMoney;
     private Timestamp createAt;
 
     public OrderItem() {
     }
 
-    public OrderItem(int id, int dishId, int quantity, double originTotalPrice, double discount, double totalMoney, Timestamp createAt) {
+    public OrderItem(int id, Dish dish, int quantity, double originTotalPrice, double discount, double totalMoney, Timestamp createAt) {
         this.id = id;
-        this.dishId = dishId;
+        this.dish = dish;
+        this.price = dish.getPrice();
         this.quantity = quantity;
         this.originTotalPrice = originTotalPrice;
         this.discount = discount;
@@ -24,9 +26,14 @@ public class OrderItem {
         this.createAt = createAt;
     }
 
-    public OrderItem(int dishId, int quantity) {
-        this.dishId = dishId;
+    public OrderItem(Dish dish, int quantity) {
+        this.dish = dish;
+        this.price = dish.getPrice();
         this.quantity = quantity;
+    }
+
+    public Double getPrice() {
+        return price;
     }
 
     public int getId() {
@@ -37,12 +44,13 @@ public class OrderItem {
         this.id = id;
     }
 
-    public int getDishId() {
-        return dishId;
+    public Dish getDish() {
+        return dish;
     }
 
-    public void setDishId(int dishId) {
-        this.dishId = dishId;
+    public void setDish(Dish dish) {
+        this.dish = dish;
+        this.price = dish.getPrice();
     }
 
     public int getQuantity() {
@@ -69,7 +77,7 @@ public class OrderItem {
         this.discount = discount;
     }
 
-    public double getTotalMoney() {
+    public Double getTotalMoney() {
         return totalMoney;
     }
 
@@ -83,5 +91,8 @@ public class OrderItem {
 
     public void setCreateAt(Timestamp createAt) {
         this.createAt = createAt;
+    }
+    public void updateTotal(){
+        this.totalMoney = dish.getPrice() * quantity;
     }
 }

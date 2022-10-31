@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Order {
     private int id;
-    private int tableId;
+    private DinnerTable table;
     ArrayList<OrderItem> orderItems;
     private double totalMoney;
     private double totalDiscount;
@@ -18,9 +18,9 @@ public class Order {
     public Order() {
     }
 
-    public Order(int id, int tableId, ArrayList<OrderItem> orderItems, double totalMoney, double totalDiscount, int staffId, Timestamp creatAt, Timestamp updateAt, boolean status, Timestamp endedAt) {
+    public Order(int id, DinnerTable table, ArrayList<OrderItem> orderItems, double totalMoney, double totalDiscount, int staffId, Timestamp creatAt, Timestamp updateAt, boolean status, Timestamp endedAt) {
         this.id = id;
-        this.tableId = tableId;
+        this.table = table;
         this.orderItems = orderItems;
         this.totalMoney = totalMoney;
         this.totalDiscount = totalDiscount;
@@ -31,8 +31,8 @@ public class Order {
         this.endedAt = endedAt;
     }
 
-    public Order(int tableId, ArrayList<OrderItem> orderItems, int staffId) {
-        this.tableId = tableId;
+    public Order(DinnerTable table, ArrayList<OrderItem> orderItems, int staffId) {
+        this.table = table;
         this.orderItems = orderItems;
         this.staffId = staffId;
     }
@@ -45,12 +45,12 @@ public class Order {
         this.id = id;
     }
 
-    public int getTableId() {
-        return tableId;
+    public DinnerTable getTable() {
+        return table;
     }
 
-    public void setTableId(int tableId) {
-        this.tableId = tableId;
+    public void setTable(DinnerTable table) {
+        this.table = table;
     }
 
     public ArrayList<OrderItem> getOrderItems() {
